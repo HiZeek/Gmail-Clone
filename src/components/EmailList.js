@@ -63,14 +63,14 @@ const EmailList = () => {
       <div className="emailList-list">
         <EmailRow
           title="LinkedIn"
-          subject="React Job"
-          description="Here are list of jobs available in your location"
+          subject="React Jobs in Africa"
+          description="Here are list of jobs available in your location Here are list of jobs available in your location Here are list of jobs available in your location"
           time='10pm'
         />
         <EmailRow
           title="LinkedIn"
-          subject="React Job"
-          description="Here are list of jobs available in your location"
+          subject="React Jobs in Europe"
+          description="Here are list of jobs available in your location Here are list of jobs available in your location Here are list of jobs available in your location"
           time='10pm'
         />
       </div>

@@ -15,7 +15,7 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import ScheduleSendOutlinedIcon from '@mui/icons-material/ScheduleSendOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import ReportIcon from '@mui/icons-material/Report';
+import ReportGmailerrorredOutlinedIcon from '@mui/icons-material/ReportGmailerrorredOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import DuoIcon from '@mui/icons-material/Duo';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -30,7 +30,7 @@ const Sidebar = () => {
       >
         Compose
       </Button>
-      <SidebarOption Icon={InboxOutlinedIcon} title='Inbox' number={`16${','}634`} selected={true} />
+      <SidebarOption Icon={InboxOutlinedIcon} title='Inbox' number={`16${','}684`} selected={true} />
       <SidebarOption Icon={StarBorderOutlinedIcon} title='Starred' number={54} />
       <SidebarOption Icon={AccessTimeOutlinedIcon} title='Snoozed' number={54} />
       <SidebarOption Icon={SendOutlinedIcon} title='Sent' number={54} />
@@ -41,7 +41,7 @@ const Sidebar = () => {
       <SidebarOption Icon={ChatOutlinedIcon} title='Chat' />
       <SidebarOption Icon={ScheduleSendOutlinedIcon} title='Scheduled' />
       <SidebarOption Icon={EmailOutlinedIcon} title='All Mail' />
-      <SidebarOption Icon={ReportIcon} title='Spam' />
+      <SidebarOption Icon={ReportGmailerrorredOutlinedIcon} title='Spam' />
       <SidebarOption Icon={DeleteOutlinedIcon} title='Bin' />
 
 
