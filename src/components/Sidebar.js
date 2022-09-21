@@ -30,7 +30,7 @@ const Sidebar = () => {
       >
         Compose
       </Button>
-      <SidebarOption Icon={InboxOutlinedIcon} title='Inbox' number={54} selected={true} />
+      <SidebarOption Icon={InboxOutlinedIcon} title='Inbox' number={`16${','}634`} selected={true} />
       <SidebarOption Icon={StarBorderOutlinedIcon} title='Starred' number={54} />
       <SidebarOption Icon={AccessTimeOutlinedIcon} title='Snoozed' number={54} />
       <SidebarOption Icon={SendOutlinedIcon} title='Sent' number={54} />
