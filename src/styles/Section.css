@@ -5,18 +5,16 @@
     padding: 15px;
     min-width: 200px;
     cursor: pointer;
-    color: grey;
+    color: #444746;
     border-width: 0 !important;
 }
 
 .section-selected {
-    background-color: whitesmoke;
     border-width: 3px !important;
 }
 
 .section:hover {
     background-color: whitesmoke;
-    border-width: 3px !important;
 }
 
 .section > h4 {

@@ -49,15 +49,15 @@ const EmailList = () => {
         <Section
           Icon={InboxOutlinedIcon}
           title="Primary"
-          color="red"
+          color="#0b57d0"
           selected
         />
         <Section
           Icon={LocalOfferOutlinedIcon}
           title="Promotions"
-          color="green"
+          color="#0b57d0"
         />
-        <Section Icon={GroupOutlinedIcon} title="Social" color="#1a73e8" />
+        <Section Icon={GroupOutlinedIcon} title="Social" color="#0b57d0" />
       </div>
 
       <div className="emailList-list">
