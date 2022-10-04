@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import EmailList from "./components/EmailList";
 import Mail from "./components/Mail";
+import SendMail from "./components/SendMail";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/mail" element={<Mail />} />
           </Routes>
         </div>
+        <SendMail />
       </div>
     </Router>
   );
