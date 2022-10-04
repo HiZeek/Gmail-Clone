@@ -2,9 +2,9 @@
     position: absolute;
     bottom: 0px;
     right: 50px;
-    background-color: #404040;
+    background-color: #F2F6FB;
     width: 40%;
-    height: 40%;
+    height: 60%;
     max-width: 500px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -19,11 +19,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: gray;
+    color: #041e49;
 }
 
 .sendMail-header > h3 {
-    color: whitesmoke;
+    color: #041e49;
     font-size: 13px;
 }
 

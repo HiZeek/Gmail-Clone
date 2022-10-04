@@ -1,7 +1,9 @@
 import React from "react";
-import { Button, IconButton } from "@mui/material";
-import "../styles/Sidebar.css";
 import SidebarOption from "./SidebarOption";
+import { useDispatch } from "react-redux";
+import "../styles/Sidebar.css";
+import { openSendMessage } from "../features/mailSlice";
+import { Button, IconButton } from "@mui/material";
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
@@ -21,12 +23,14 @@ import DuoIcon from '@mui/icons-material/Duo';
 import PhoneIcon from '@mui/icons-material/Phone';
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   return (
     <div className="sidebar">
       <Button
         startIcon={
           <EditOutlinedIcon fontSize="large" />
         } className="sidebar-compose"
+        onClick={() => dispatch(openSendMessage())}
       >
         Compose
       </Button>
