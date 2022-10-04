@@ -24,7 +24,7 @@ const SendMail = () => {
           type="text"
           {...register('to', { required: true })}
         />
-        {errors && <p className="sendMail-error">To is Required!</p>}
+        {errors.to && <p className="sendMail-error">To is Required!</p>}
         <input
           name="subject"
           placeholder="Subject"
