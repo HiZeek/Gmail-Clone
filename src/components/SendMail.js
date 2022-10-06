@@ -5,8 +5,8 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { closeSendMessage } from "../features/mailSlice";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebase";
-import firebase from 'firebase/compat/app';
 
 const SendMail = () => {
   const {
@@ -18,14 +18,30 @@ const SendMail = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = (formData) => {
+  
+
+  const onSubmit = async (formData) => {
     console.log(formData);
-    db.collection('emails').add({
-      recipients: formData.recipients,
-      subject: formData.subject,
-      message: formData.message,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    // FIREBASE VERSION 8
+    // db.collection('emails').add({
+    //   recipients: formData.recipients,
+    //   subject: formData.subject,
+    //   message: formData.message,
+    //   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    // });
+
+    // FIREBASE VERSION 9
+      try {
+        const docRef = await addDoc(collection(db, "email"), {
+          recipients: formData.recipients,
+          subject: formData.subject,
+          message: formData.message,
+          timestamp: serverTimestamp(),
+        });
+        console.log("db: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     dispatch(closeSendMessage());
   };
 
