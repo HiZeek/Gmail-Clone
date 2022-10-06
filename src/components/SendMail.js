@@ -5,6 +5,8 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { closeSendMessage } from "../features/mailSlice";
+import { db } from "./firebase";
+import firebase from 'firebase/compat/app';
 
 const SendMail = () => {
   const {
@@ -13,10 +15,18 @@ const SendMail = () => {
     watch,
     formState: { errors },
   } = useForm();
+
   const dispatch = useDispatch();
 
   const onSubmit = (formData) => {
     console.log(formData);
+    db.collection('emails').add({
+      recipients: formData.recipients,
+      subject: formData.subject,
+      message: formData.message,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    dispatch(closeSendMessage());
   };
 
   return (
@@ -32,7 +42,7 @@ const SendMail = () => {
         <input
           name="recipients"
           placeholder="Recipients"
-          type="text"
+          type="email"
           {...register("recipients", { required: true })}
         />
         {errors.recipients && <p className="sendMail-error">To is Required!</p>}
