@@ -14,18 +14,13 @@ import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import { db } from "./firebase";
-import {
-  collection,
-  getDocs,
-  orderBy,
-  query,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 
 const EmailList = () => {
   const [emails, setEmails] = useState([]);
 
   useEffect(() => {
+    // VERSION 8
     // db.collection("emails")
     //   .orderBy("timestamp", "desc")
     // .onSnapshot((snapshot) =>
@@ -37,21 +32,21 @@ const EmailList = () => {
     //   )
     // );
 
+    // VERSION 9
     const fetchData = async () => {
-      const ordersRef = collection(db, "email");
-      const q = query(ordersRef, orderBy("timestamp", "desc"));
-      const querySnapshot = await getDocs(q);
-      console.log(q, "q");
-      const arr = [];
-      querySnapshot.forEach((doc) => {
-        arr.push({
-          id: doc.id,
-          data: doc.data(),
+      const emailRef = collection(db, "email");
+      const q = query(emailRef, orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        let emailList = [];
+        snapshot.docs.forEach((doc) => {
+          emailList.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+          setEmails(emailList);
         });
       });
-        setEmails(arr);
     };
-
     fetchData();
   }, []);
 
