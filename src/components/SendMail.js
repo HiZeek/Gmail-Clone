@@ -32,13 +32,13 @@ const SendMail = () => {
 
     // FIREBASE VERSION 9
       try {
-        const docRef = await addDoc(collection(db, "email"), {
+        const emailData = await addDoc(collection(db, "email"), {
           recipients: formData.recipients,
           subject: formData.subject,
           message: formData.message,
           timestamp: serverTimestamp(),
         });
-        console.log("db: ", docRef.id);
+        console.log("db: ", emailData.id);
       } catch (e) {
         console.error("Error adding document: ", e);
       }
