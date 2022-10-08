@@ -15,9 +15,13 @@ import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
 import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import { useSelector } from "react-redux";
+import { selectOpenMail } from "../features/mailSlice";
 
 const Mail = () => {
   const history = useNavigate();
+
+  const selectedMail = useSelector(selectOpenMail);
 
   return (
     <div className="mail">
@@ -68,12 +72,12 @@ const Mail = () => {
       </div>
       <div className="mail-body">
         <div className="mail-bodyHeader">
-          <h2>Subject</h2>
-          <p>Title</p>
-          <p className="mail-time">10pm</p>
+          <h2>{selectedMail?.subject}</h2>
+          <p>{selectedMail?.Title}</p>
+          <p className="mail-time">{selectedMail?.time}</p>
         </div>
         <div className="mail-message">
-          <p>This is a message</p>
+          <p>{selectedMail?.description}</p>
         </div>
       </div>
     </div>
