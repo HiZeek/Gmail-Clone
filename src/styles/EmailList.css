@@ -4,6 +4,12 @@
     background-color: white;
     padding: 5px 10px;
     border-radius: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.emailList::-webkit-scrollbar {
+    display: none;
 }
 
 .emailList-settings {
@@ -24,4 +30,8 @@
     border-bottom: 1px solid whitesmoke;
     background-color: white;
     z-index: 999;
+}
+
+.emailList-list {
+    padding-bottom: 15%;
 }
