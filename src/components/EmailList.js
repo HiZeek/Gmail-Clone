@@ -108,18 +108,6 @@ const EmailList = () => {
             />
           )
         )}
-        <EmailRow
-          title="LinkedIn"
-          subject="React Jobs in Africa"
-          description="Here are list of jobs available in your location Here are list of jobs available in your location Here are list of jobs available in your location"
-          time="10pm"
-        />
-        <EmailRow
-          title="LinkedIn"
-          subject="React Jobs in Europe"
-          description="Here are list of jobs available in your location Here are list of jobs available in your location Here are list of jobs available in your location"
-          time="10pm"
-        />
       </div>
     </div>
   );
