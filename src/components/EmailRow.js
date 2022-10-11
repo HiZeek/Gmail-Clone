@@ -2,7 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { selectMail } from "../features/mailSlice";
 import { useDispatch } from "react-redux";
+
+// STYLE
 import "../styles/EmailRow.css";
+
+// MATERIAL UI
 import { Checkbox, IconButton } from "@mui/material";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 

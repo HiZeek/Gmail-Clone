@@ -1,6 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectOpenMail } from "../features/mailSlice";
 import { useNavigate } from "react-router-dom";
+
+// STYLE
 import "../styles/Mail.css";
+
+// MATERIAL UI
 import { IconButton } from "@mui/material";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
@@ -15,8 +21,6 @@ import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
 import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
-import { useSelector } from "react-redux";
-import { selectOpenMail } from "../features/mailSlice";
 
 const Mail = () => {
   const history = useNavigate();

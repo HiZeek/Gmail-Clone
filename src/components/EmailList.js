@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Section from "./Section";
 import EmailRow from "./EmailRow";
+
+// STYLE
 import "../styles/EmailList.css";
+
+// FIREBASE
+import { db } from "./firebase";
+import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
+
+// MATERIAL UI
 import { Checkbox, IconButton } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -13,8 +21,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import { db } from "./firebase";
-import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 
 const EmailList = () => {
   const [emails, setEmails] = useState([]);

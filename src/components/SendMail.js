@@ -1,18 +1,24 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "../styles/SendMail.css";
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { closeSendMessage } from "../features/mailSlice";
+
+// FIREBASE
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebase";
+
+// STYLE
+import "../styles/SendMail.css";
+
+// MATERIAL UI
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { Button } from "@mui/material";
+
 
 const SendMail = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import SidebarOption from "./SidebarOption";
 import { useDispatch } from "react-redux";
-import "../styles/Sidebar.css";
 import { openSendMessage } from "../features/mailSlice";
+
+// STYLE
+import "../styles/Sidebar.css";
+
+// MATERIAL UI
 import { Button, IconButton } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";

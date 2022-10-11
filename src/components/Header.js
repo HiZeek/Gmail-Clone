@@ -1,18 +1,21 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "../features/userSlice";
+
+// FIREBASE
+import { auth } from "./firebase";
+
+// STYLE
 import "../styles/Header.css";
 
-//Icons
+//MATERIAL UI
 import { Avatar, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-// import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AppsIcon from "@mui/icons-material/Apps";
 import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import { useDispatch, useSelector } from "react-redux";
-import { logout, selectUser } from "../features/userSlice";
-import { auth } from "./firebase";
 
 const Header = () => {
   const dispatch = useDispatch();
