@@ -1,64 +1,78 @@
 .sendMail {
-    position: absolute;
-    bottom: 0px;
-    right: 50px;
-    background-color: #F2F6FB;
-    width: 40%;
-    height: 60%;
-    max-width: 500px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid whitesmoke;
-    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.24);
+  position: absolute;
+  bottom: 0px;
+  right: 50px;
+  background-color: #f2f6fb;
+  width: 40%;
+  height: 60%;
+  max-width: 500px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid whitesmoke;
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.24);
 }
 
 .sendMail-header {
-    padding: 13px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #041e49;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #041e49;
 }
 
 .sendMail-header > h3 {
-    color: #041e49;
-    font-size: 13px;
+  color: #041e49;
+  font-size: 13px;
 }
 
 .sendMail-send {
-    color: white !important;
-    background-color: #3079ed !important;
-    text-transform: capitalize !important;
-    margin: 15px !important;
+  color: white !important;
+  background-color: #3079ed !important;
+  text-transform: capitalize !important;
+  margin: 15px !important;
 }
 
 .sendMail-close {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .sendMail > form {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .sendMail-error {
-    background-color: white;
-    color: red;
-    text-align: right;
-    padding: 2px;
+  background-color: white;
+  color: red;
+  text-align: right;
+  padding: 2px;
 }
 
 .sendMail > form > input {
-    height: 30px;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid whitesmoke;
-    outline: none;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  outline: none;
 }
 
 .sendMail-message {
-    flex: 1;
+  flex: 1;
+}
+
+.sending-message {
+  position: absolute;
+  bottom: 2%;
+  left: -300;
+  background-color: black !important;
+  padding: 12px 32px;
+  border-radius: 8px;
+  z-index: 9999;
+}
+
+.sending-message-text {
+  color: white;
 }

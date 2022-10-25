@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { closeSendMessage } from "../features/mailSlice";
@@ -14,8 +14,8 @@ import "../styles/SendMail.css";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { Button } from "@mui/material";
 
-
 const SendMail = () => {
+  const [sendingMessage, setSendingMessage] = useState(false);
   const {
     register,
     handleSubmit,
@@ -23,8 +23,6 @@ const SendMail = () => {
   } = useForm();
 
   const dispatch = useDispatch();
-
-  
 
   const onSubmit = async (formData) => {
     console.log(formData);
@@ -37,17 +35,19 @@ const SendMail = () => {
     // });
 
     // FIREBASE VERSION 9
-      try {
-        const emailData = await addDoc(collection(db, "email"), {
-          recipients: formData.recipients,
-          subject: formData.subject,
-          message: formData.message,
-          timestamp: serverTimestamp(),
-        });
-        console.log("db: ", emailData.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
+    try {
+      setSendingMessage(true);
+      const emailData = await addDoc(collection(db, "email"), {
+        recipients: formData.recipients,
+        subject: formData.subject,
+        message: formData.message,
+        timestamp: serverTimestamp(),
+      });
+      setSendingMessage(false);
+      console.log("db: ", emailData.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
     dispatch(closeSendMessage());
   };
 
@@ -98,6 +98,11 @@ const SendMail = () => {
           </Button>
         </div>
       </form>
+      {sendingMessage ? (
+        <div className="sending-message">
+          <p className="sending-message-text">Sending...</p>
+        </div>
+      ) : null}
     </div>
   );
 };
