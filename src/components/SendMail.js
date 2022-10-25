@@ -16,6 +16,7 @@ import { Button } from "@mui/material";
 
 const SendMail = () => {
   const [sendingMessage, setSendingMessage] = useState(false);
+  const [sentMessage, setSentMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -37,12 +38,14 @@ const SendMail = () => {
     // FIREBASE VERSION 9
     try {
       setSendingMessage(true);
+      setSentMessage("sending...");
       const emailData = await addDoc(collection(db, "email"), {
         recipients: formData.recipients,
         subject: formData.subject,
         message: formData.message,
         timestamp: serverTimestamp(),
       });
+      setSentMessage("sent");
       setSendingMessage(false);
       console.log("db: ", emailData.id);
     } catch (e) {
@@ -100,7 +103,7 @@ const SendMail = () => {
       </form>
       {sendingMessage ? (
         <div className="sending-message">
-          <p className="sending-message-text">Sending...</p>
+          <p className="sending-message-text">{sentMessage}</p>
         </div>
       ) : null}
     </div>
