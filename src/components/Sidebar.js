@@ -39,13 +39,19 @@ const Sidebar = (props) => {
   };
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${props.reduceSidebar && 'reduce-sidebar sidebar-display'}`}>
       <Button
         startIcon={<EditOutlinedIcon fontSize="large" />}
-        className="sidebar-compose"
+        className="sidebar-compose-mobile"
         onClick={() => dispatch(openSendMessage())}
       >
-        Compose
+      </Button>
+      <Button
+        startIcon={<EditOutlinedIcon fontSize="large" />}
+        className={`sidebar-compose ${props.reduceSidebar && 'reduce-sidebar-compose'}`}
+        onClick={() => dispatch(openSendMessage())}
+      >
+        {props.reduceSidebar ? '' : 'Compose'}
       </Button>
       <SidebarOption
         Icon={InboxOutlinedIcon}

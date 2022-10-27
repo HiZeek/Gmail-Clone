@@ -42,6 +42,15 @@ const EmailRow = ({ id, title, subject, description, time }) => {
           <span className="emailRow-description">- {description}</span>
         </h4>
       </div>
+      <div className="emailRow-container">
+        <h3 className="emailRow-title-mobile">{title}</h3>
+        <div className="emailRow-message-mobile">
+          <h4>
+            {subject}{" "}
+            <span className="emailRow-description-mobile">- {description}</span>
+          </h4>
+        </div>
+      </div>
       <p className="emailRow-time">{time}</p>
     </div>
   );

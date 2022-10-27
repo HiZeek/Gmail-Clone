@@ -21,8 +21,9 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const [reduceSidebar, setReduceSidebar] = useState(false);
   const [emails, setEmails] = useState([]);
-  const [emailLength, setEmailLength] = useState('');
+  const [emailLength, setEmailLength] = useState("");
 
   useEffect(() => {
     // VERSION 8
@@ -71,15 +72,20 @@ function App() {
     });
   }, [dispatch]);
 
+  const sidebarHandler = () => {
+    setReduceSidebar(!reduceSidebar);
+    console.log('worked');
+  };
+
   return (
     <Router>
       {!user ? (
         <Login />
       ) : (
         <div className="app">
-          <Header />
+          <Header onReduce={sidebarHandler} />
           <div className="app-body">
-            <Sidebar emailLength={emailLength} />
+            <Sidebar reduceSidebar={reduceSidebar} emailLength={emailLength} />
             <Routes>
               <Route path="/" element={<EmailList emails={emails} />} />
               <Route path="/mail" element={<Mail />} />

@@ -1,44 +1,56 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
 }
 
 .header-left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-left > img {
-    object-fit: contain;
-    height: 50px; /* 40px on gmail */ 
-    margin-left: 5px;
+  object-fit: contain;
+  height: 50px; /* 40px on gmail */
+  margin-left: 5px;
 }
 
 .header-middle {
-    display: flex;
-    flex: 0.7;
-    align-items: center;
-    background-color: #eaf1fb;
-    padding: 10px;
-    border-radius: 5px;
+  display: flex;
+  flex: 0.7;
+  align-items: center;
+  background-color: #eaf1fb;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .header-middle > .MuiSvgIcon-root {
-    color: grey;
+  color: grey;
 }
 
 .header-middle > input {
-    border: none;
-    width: 100%;
-    padding: 10px;
-    outline: none;
-    font-size: medium;
-    background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  font-size: medium;
+  background-color: transparent;
 }
 
 .header-right {
-    display: flex;
-    padding-right: 20px;
+  display: flex;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .header-icon-mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .header-middle {
+    display: none !important;
+  }
 }

@@ -17,7 +17,7 @@ import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 
-const Header = () => {
+const Header = (props) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-left">
-        <IconButton>
+        <IconButton onClick={props.onReduce}>
           <MenuIcon />
         </IconButton>
         <img
@@ -46,13 +46,13 @@ const Header = () => {
         </IconButton>
       </div>
       <div className="header-right">
-        <IconButton>
+        <IconButton className="header-icon-mobile">
           <SettingsOutlinedIcon />
         </IconButton>
-        <IconButton>
+        <IconButton className="header-icon-mobile">
           <HelpOutlineOutlinedIcon />
         </IconButton>
-        <IconButton>
+        <IconButton className="header-icon-mobile">
           <AppsIcon />
         </IconButton>
         <Avatar onClick={signOut} src={user?.photoUrl} />

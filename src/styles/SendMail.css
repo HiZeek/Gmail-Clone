@@ -76,3 +76,10 @@
 .sending-message-text {
   color: white;
 }
+
+@media screen and (max-width: 560px) {
+  .sendMail {
+    width: 80%;
+    height: 60%;
+  }
+}
