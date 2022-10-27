@@ -26,7 +26,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import DuoIcon from "@mui/icons-material/Duo";
 import PhoneIcon from "@mui/icons-material/Phone";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const [showMore, setShowMore] = useState(false);
   const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ const Sidebar = () => {
       <SidebarOption
         Icon={InboxOutlinedIcon}
         title="Inbox"
-        number={`16${","}684`}
+        number={props.emailLength}
         selected={true}
       />
       <SidebarOption
@@ -65,10 +65,20 @@ const Sidebar = () => {
       />
       <SidebarOption Icon={SendOutlinedIcon} title="Sent" number={54} />
       <SidebarOption Icon={NoteOutlinedIcon} title="Draft" number={54} />
-      {!showMore && <SidebarOption Icon={KeyboardArrowDownOutlinedIcon} title="More" onClick={displayShowMoreDropdown} />}
+      {!showMore && (
+        <SidebarOption
+          Icon={KeyboardArrowDownOutlinedIcon}
+          title="More"
+          onClick={displayShowMoreDropdown}
+        />
+      )}
       {showMore && (
         <div>
-          <SidebarOption Icon={KeyboardArrowUpOutlinedIcon} title="Less" onClick={hideShowMoreDropdown} />
+          <SidebarOption
+            Icon={KeyboardArrowUpOutlinedIcon}
+            title="Less"
+            onClick={hideShowMoreDropdown}
+          />
           <SidebarOption Icon={LabelImportantOutlinedIcon} title="Important" />
           <SidebarOption Icon={ChatOutlinedIcon} title="Chat" />
           <SidebarOption Icon={ScheduleSendOutlinedIcon} title="Scheduled" />

@@ -45,6 +45,7 @@ const SendMail = () => {
         message: formData.message,
         timestamp: serverTimestamp(),
       });
+      console.log(emailData.length);
       setSentMessage("sent");
       setSendingMessage(false);
       console.log("db: ", emailData.id);

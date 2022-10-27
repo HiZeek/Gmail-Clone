@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -10,13 +10,51 @@ import { selectSendMessageIsOpen } from "./features/mailSlice";
 import "./App.css";
 import { login, selectUser } from "./features/userSlice";
 import Login from "./components/Login";
-import { auth } from "./components/firebase";
+
+// FIREBASE
+import { auth, db } from "./components/firebase";
+import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 
 function App() {
   const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);
   const user = useSelector(selectUser);
 
   const dispatch = useDispatch();
+
+  const [emails, setEmails] = useState([]);
+  const [emailLength, setEmailLength] = useState('');
+
+  useEffect(() => {
+    // VERSION 8
+    // db.collection("emails")
+    //   .orderBy("timestamp", "desc")
+    // .onSnapshot((snapshot) =>
+    //   setEmails(
+    //     snapshot.docs.map((doc) => ({
+    //       id: doc.id,
+    //       data: doc.data(),
+    //     }))
+    //   )
+    // );
+
+    // VERSION 9
+    const fetchData = async () => {
+      const emailRef = collection(db, "email");
+      const q = query(emailRef, orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        let emailList = [];
+        snapshot.docs.forEach((doc) => {
+          emailList.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+          setEmails(emailList);
+        });
+        setEmailLength(emailList.length);
+      });
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -41,9 +79,9 @@ function App() {
         <div className="app">
           <Header />
           <div className="app-body">
-            <Sidebar />
+            <Sidebar emailLength={emailLength} />
             <Routes>
-              <Route path="/" element={<EmailList />} />
+              <Route path="/" element={<EmailList emails={emails} />} />
               <Route path="/mail" element={<Mail />} />
             </Routes>
           </div>

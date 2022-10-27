@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import Section from "./Section";
 import EmailRow from "./EmailRow";
 
 // STYLE
 import "../styles/EmailList.css";
-
-// FIREBASE
-import { db } from "./firebase";
-import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 
 // MATERIAL UI
 import { Checkbox, IconButton } from "@mui/material";
@@ -22,39 +18,7 @@ import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 
-const EmailList = () => {
-  const [emails, setEmails] = useState([]);
-
-  useEffect(() => {
-    // VERSION 8
-    // db.collection("emails")
-    //   .orderBy("timestamp", "desc")
-    // .onSnapshot((snapshot) =>
-    //   setEmails(
-    //     snapshot.docs.map((doc) => ({
-    //       id: doc.id,
-    //       data: doc.data(),
-    //     }))
-    //   )
-    // );
-
-    // VERSION 9
-    const fetchData = async () => {
-      const emailRef = collection(db, "email");
-      const q = query(emailRef, orderBy("timestamp", "desc"));
-      onSnapshot(q, (snapshot) => {
-        let emailList = [];
-        snapshot.docs.forEach((doc) => {
-          emailList.push({
-            id: doc.id,
-            data: doc.data(),
-          });
-          setEmails(emailList);
-        });
-      });
-    };
-    fetchData();
-  }, []);
+const EmailList = (props) => {
 
   return (
     <div className="emailList">
@@ -102,7 +66,7 @@ const EmailList = () => {
       </div>
 
       <div className="emailList-list">
-        {emails.map(
+        {props.emails.map(
           ({ id, data: { recipients, subject, message, timestamp } }) => (
             <EmailRow
               id={id}
