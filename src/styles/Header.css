@@ -5,6 +5,10 @@
   padding: 10px 0;
 }
 
+.avatar {
+  cursor: pointer;
+}
+
 .header-left {
   display: flex;
   align-items: center;

@@ -55,7 +55,7 @@ const Header = (props) => {
         <IconButton className="header-icon-mobile">
           <AppsIcon />
         </IconButton>
-        <Avatar onClick={signOut} src={user?.photoUrl} />
+        <Avatar className="avatar" onClick={signOut} src={user?.photoUrl} />
       </div>
     </div>
   );
